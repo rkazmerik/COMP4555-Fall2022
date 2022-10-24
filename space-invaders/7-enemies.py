@@ -1,7 +1,7 @@
 import pygame
 import math
 import random
-#import psutil
+import psutil
 
 
 pygame.init()
@@ -121,15 +121,16 @@ while running:
 			enemyX[i] = random.randint(0, 800) 
 			enemyY[i] = random.randint(50, 150) 
 
+			print(f"{score}")
+			print('RAM memory % used:', psutil.virtual_memory()[2])
+			print('RAM Used (GB):', psutil.virtual_memory()[3]/1000000000)
+		
 		enemy(enemyX[i], enemyY[i], i) #animate each enemy
 
 	#Bullet Animation
 	if bulletY <= 0:
 		bulletY = 480 
 		bullet_state = "ready"
-		
-		#print('RAM memory % used:', psutil.virtual_memory()[2])
-		#print('RAM Used (GB):', psutil.virtual_memory()[3]/1000000000)
 		
 	if bullet_state is "fire": 
 		fire_bullet(bulletX, bulletY)
